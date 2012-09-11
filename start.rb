@@ -2,8 +2,12 @@ require "rubygems"
 require "sinatra"
 require "./models/bookmark"
 
+set :haml, {format: :html5}
+
 get '/' do
-  Bookmark.new(
+  bookmarks = DB[:bookmarks]
+
+  bookmarks.insert(
     title: 'nabetama.com',
     url:   'http://nabetama.com',
     tag:   'test',
@@ -11,5 +15,5 @@ get '/' do
   )
 
   @bookmarks = Bookmark.order_by(:id.desc)
-  slim :index
+  haml :index
 end

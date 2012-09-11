@@ -1,0 +1,20 @@
+!!! XML
+!!!
+%html{html_attrs('ja')}
+  %head
+    %title Light Weight Lang News
+  %body
+    #header
+      %h1 Light Weight Language News
+
+    #content
+      %table
+        - @bookmarks.each do |bookmark|
+          %tr
+            %td.title= bookmark.title
+            %td.url= bookmark.url
+            %td.count= bookmark.bookmark_count
+
+      - aisatsu = "Powerd by "
+      - aisatsu << "nabetama"
+      %p= aisatsu
