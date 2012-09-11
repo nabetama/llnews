@@ -9,6 +9,8 @@ Sequel.migration do
       String :url, null: false
       String :tag
       Integer :bookmark_count
+      timestamp :created_at
+      timestamp :updated_at
     end
   end
 

@@ -12,7 +12,7 @@ tags.each do |tag|
     table.insert(
       title:          bookmark[:title],
       url:            bookmark[:link_url],
-      tag:            bookmark[:tag],
+      tag:            tag,
       bookmark_count: bookmark[:users].to_s.to_i
     )
   end
