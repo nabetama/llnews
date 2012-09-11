@@ -2,7 +2,7 @@ require "rubygems"
 require "sinatra"
 require "./models/bookmark"
 
-if developement?
+if development?
   require 'sinatra/reloader'
 end
 
