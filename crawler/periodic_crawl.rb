@@ -2,23 +2,19 @@
 require "./crawler/crawler"
 require "./models/bookmark"
 
-db = DB[:bookmarks]
+table = DB[:bookmarks]
 tags = ['ruby', 'perl', 'python', 'php', 'sinatra', 'rails']
 
 tags.each do |tag|
   bookmarks = Crawler::Tag.new(users=3, tag=tag)
   bookmarks.scrape
   bookmarks.articles.each do |bookmark|
-#    db.insert(
-#      title: bookmark[:title],
-#      url:   bookmark[:url],
-#      tag:   bookmark[:tag],
-#      bookmark_count: [bookmark:bookmark_count]
-#    )
-    puts bookmark[:title]
-    puts bookmark[:link_url]
-    puts tag
-    puts bookmark[:users]
+    table.insert(
+      title:          bookmark[:title],
+      url:            bookmark[:link_url],
+      tag:            bookmark[:tag],
+      bookmark_count: bookmark[:users].to_s.to_i
+    )
   end
 end
 
