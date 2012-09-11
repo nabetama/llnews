@@ -2,6 +2,10 @@ require "rubygems"
 require "sinatra"
 require "./models/bookmark"
 
+if developement
+  require 'sinatra/reloader'
+end
+
 set :haml, {format: :html5}
 
 get '/' do
