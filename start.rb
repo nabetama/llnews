@@ -24,3 +24,4 @@ get '/' do
   @tags = ['ruby', 'perl', 'python', 'php']
   haml :index
 end
+

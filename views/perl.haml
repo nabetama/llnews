@@ -1,0 +1,7 @@
+%div.content
+  %table{class: "table table-striped table-bordered table-condensed"}
+    - @perl.each do|bookmark|
+      %tr
+        %td.title= bookmark.title
+        %td.url= bookmark.url
+        %td.count= bookmark.bookmark_count
