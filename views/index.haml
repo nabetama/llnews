@@ -2,18 +2,27 @@
 !!!
 %html{html_attrs('ja')}
   %head
-    %title Light Weight Lang News
+    %title LLnews
+    %link(rel='stylesheet' href='bootstrap/css/bootstrap.min.css')
+    %link(rel='stylesheet' href='bootstrap/css/bootstrap-responsive.min.css')
+    %script{src: 'bootstrap/js/bootstrap.min.js'}
+    %script{src: 'http://code.jquery.com/jquery-latest.js'}
   %body
     #header
-      %h1 Light Weight Language News
+      %h1 #{@title}
 
-    #content
-      %table
-        - @bookmarks.each do |bookmark|
-          %tr
-            %td.title= bookmark.title
-            %td.url= bookmark.url
-            %td.count= bookmark.bookmark_count
+    %div.container-fluid
+      %div.row-fluid
+        %div.span3
+          <!-- Sidebar contents -->
+
+        %div.span10
+          %table.table
+            - @rubys.each do |bookmark|
+              %tr
+                %td.title= bookmark.title
+                %td.url= bookmark.url
+                %td.count= bookmark.bookmark_count
 
       - aisatsu = "Powerd by "
       - aisatsu << "nabetama"
