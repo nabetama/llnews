@@ -5,25 +5,29 @@
     %title LLnews
     %link(rel='stylesheet' href='bootstrap/css/bootstrap.min.css')
     %link(rel='stylesheet' href='bootstrap/css/bootstrap-responsive.min.css')
+    %link(rel='stylesheet' href='index.css')
     %script{src: 'bootstrap/js/bootstrap.min.js'}
     %script{src: 'http://code.jquery.com/jquery-latest.js'}
   %body
-    #header
+    %div.hero-unit
       %h1 #{@title}
 
-    %div.container-fluid
-      %div.row-fluid
-        %div.span3
-          <!-- Sidebar contents -->
+    <!-- Basic tabs(bootstrap) -->
+    %ul{class: 'nav nav-pills'}
+      %li.active
+        %a{href: "./ruby"} Ruby
+      %li
+        %a{href: "./perl"} Perl
+      %li
+        %a{href: "./python"} Python 
+      %li
+        %a{href: "./php"} PHP
 
-        %div.span10
-          %table.table
-            - @rubys.each do |bookmark|
-              %tr
-                %td.title= bookmark.title
-                %td.url= bookmark.url
-                %td.count= bookmark.bookmark_count
+    %div.content
+      %table.table
+        - @rubys.each do |bookmark|
+          %tr
+            %td.title= bookmark.title
+            %td.url= bookmark.url
+            %td.count= bookmark.bookmark_count
 
-      - aisatsu = "Powerd by "
-      - aisatsu << "nabetama"
-      %p= aisatsu
