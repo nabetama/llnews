@@ -21,5 +21,6 @@ get '/' do
   @pythons  = Bookmark.order_by(:id.desc).where(tag: "python")
   @phps     = Bookmark.order_by(:id.desc).where(tag: "phps")
   @tags = ['ruby', 'perl', 'python', 'php']
-  haml :index
+  haml :layout
 end
+
