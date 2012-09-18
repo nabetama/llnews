@@ -20,8 +20,6 @@ get '/' do
   @perls    = Bookmark.order_by(:id.desc).where(tag: "perl")
   @pythons  = Bookmark.order_by(:id.desc).where(tag: "python")
   @phps     = Bookmark.order_by(:id.desc).where(tag: "phps")
-  @title = 'Light Weight Language News'
   @tags = ['ruby', 'perl', 'python', 'php']
   haml :index
 end
-
