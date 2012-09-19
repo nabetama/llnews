@@ -7,20 +7,30 @@ require "./models/bookmark"
 # This is Controlle!! This is Controlle!!
 
 # ref: Gemfile
-if development?
-  require 'sinatra/reloader'
+
+class MyApp < Sinatra::Base
+
+  attr_accessor :tags
+
+  if development?
+    require 'sinatra/reloader'
+  end
+
+  set :haml, {format: :html5}
+
+  def initialize
+    @tags = ['ruby', 'perl', 'python', 'php']
+    super
+  end
+
+  get '/' do
+    @data  = Bookmark.order_by(:bookmark_count.desc)
+    haml :bookmarks
+  end
+
+  get '/:name' do |lang|
+    "Hello, #{lang}"
+    @data = Bookmark.order_by(:bookmark_count.desc).where(tag: lang)
+    haml :bookmarks
+  end
 end
-
-set :haml, {format: :html5}
-
-get '/' do
-  @rubys    = Bookmark.order_by(:id.desc).where(tag: "ruby")
-  @rails    = Bookmark.order_by(:id.desc).where(tag: "rails")
-  @sinatras = Bookmark.order_by(:id.desc).where(tag: "sinatra")
-  @perls    = Bookmark.order_by(:id.desc).where(tag: "perl")
-  @pythons  = Bookmark.order_by(:id.desc).where(tag: "python")
-  @phps     = Bookmark.order_by(:id.desc).where(tag: "phps")
-  @tags = ['ruby', 'perl', 'python', 'php']
-  haml :layout
-end
-

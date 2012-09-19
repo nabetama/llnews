@@ -4,4 +4,5 @@ require 'bundler'
 Bundler.require
 
 require './start'
-run Sinatra::Application
+
+MyApp.run! host: 'localhost', port: 9292
