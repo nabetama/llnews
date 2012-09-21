@@ -3,14 +3,17 @@
 %html{html_attrs('ja')}
   %head
     %title LLnews
-    %link(rel='stylesheet' href='bootstrap/css/bootstrap.min.css')
-    %link(rel='stylesheet' href='bootstrap/css/bootstrap-responsive.min.css')
+    %meta{:"http-equiv"=> 'Content-type', content: 'text/html', charset: 'utf-8'}
+    %link{rel: 'stylesheet', href: 'bootstrap/css/bootstrap.min.css'}
+    %link{rel: 'stylesheet', href: 'bootstrap/css/bootstrap-responsive.min.css'}
+    %link{rel: 'stylesheet', href: '/style.css'}
     %script{src: 'bootstrap/js/bootstrap.min.js'}
     %script{src: 'http://code.jquery.com/jquery-latest.js'}
 
   %body
     %div.hero-unit
-      %h1 Light Weight Languages News
+      %h1
+        %a{ href: "#"} Light Weight Lang News
 
     %div#container
       <!-- Basic tabs(bootstrap) -->

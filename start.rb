@@ -33,4 +33,10 @@ class MyApp < Sinatra::Base
     @data = Bookmark.order_by(:bookmark_count.desc).where(tag: lang)
     haml :bookmarks
   end
+
+#  get '/style.css' do
+#    content_type 'text/css', charset: 'utf-8'
+#    sass :style
+#  end
 end
+
