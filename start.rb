@@ -2,10 +2,6 @@ require "rubygems"
 require "sinatra"
 require "./models/bookmark"
 
-# This is Controlle!! This is Controlle!!
-# This is Controlle!! This is Controlle!!
-# This is Controlle!! This is Controlle!!
-
 # ref: Gemfile
 
 class MyApp < Sinatra::Base
