@@ -3,9 +3,13 @@
     %thead
       %tr
         %th 記事タイトル
-        %th ブックマーク数
+        %th タグ
+        %th ブクマ数
     - @data.each do|bookmark|
       %tr
         %td.title
           %a{href: bookmark.url}= bookmark.title
+        %td.tag
+          %a{href: "#{bookmark.tag}"}= bookmark.tag
         %td.count= bookmark.bookmark_count
+

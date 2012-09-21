@@ -19,7 +19,7 @@ class MyApp < Sinatra::Base
   set :haml, {format: :html5}
 
   def initialize
-    @tags = ['ruby', 'perl', 'python', 'php']
+    @tags = ['ruby', 'perl', 'python', 'php', 'sinatra', 'rails']
     super
   end
 
