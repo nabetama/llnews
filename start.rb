@@ -3,8 +3,6 @@ require "rubygems"
 require "sinatra"
 require "./models/bookmark"
 
-# ref: Gemfile
-
 class MyApp < Sinatra::Base
 
   attr_accessor :tags
