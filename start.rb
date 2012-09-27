@@ -5,7 +5,7 @@ require "./models/bookmark"
 
 class MyApp < Sinatra::Base
 
-  attr_accessor :tags
+  attr_reader :tags
 
   if development?
     require 'sinatra/reloader'
