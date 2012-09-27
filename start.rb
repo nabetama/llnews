@@ -24,7 +24,6 @@ class MyApp < Sinatra::Base
   end
 
   get '/:name' do |lang|
-    "Hello, #{lang}"
     @data = Bookmark.order_by(:bookmark_count.desc).where(tag: lang)
     haml :bookmarks
   end
