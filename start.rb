@@ -19,13 +19,20 @@ class MyApp < Sinatra::Base
   end
 
   get '/' do
+    cach_control
     @data  = Bookmark.order_by(:bookmark_count.desc)
     haml :bookmarks
   end
 
   get '/:name' do |lang|
+    cach_control
     @data = Bookmark.order_by(:bookmark_count.desc).where(tag: lang)
     haml :bookmarks
+  end
+
+  # ページを1時間キャッシュする
+  def cach_control
+    expires 3600, :public, :must_revalidate
   end
 
 #  get '/style.css' do
