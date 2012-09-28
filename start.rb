@@ -36,7 +36,6 @@ class MyApp < Sinatra::Base
   end
 
   post '/target-date' do
-    @target_date = params[:target_date]
     @data = 
       Bookmark.order_by(:bookmark_count.desc)
               .where(Sequel.like(:created_at, "#{params[:target_date]}%"))
