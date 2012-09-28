@@ -2,3 +2,4 @@ result
 /tmp/*
 *.swp
 *.db
+.DS_Store
