@@ -5,6 +5,7 @@
         %th 記事タイトル
         %th タグ
         %th ブクマ数
+        %th 記事追加日
     - @data.each do|bookmark|
       %tr
         %td.title
@@ -12,4 +13,5 @@
         %td.tag
           %a{href: "#{bookmark.tag}"}= bookmark.tag
         %td.count= bookmark.bookmark_count
+        %td.create= bookmark.created_at.strftime("%Y-%m-%d")
 

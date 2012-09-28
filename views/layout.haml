@@ -13,8 +13,8 @@
     %script{src: 'js/jquery.ui.datepicker-ja.js'}
     :javascript
       $(function(){
-        $("#datepicker").datepicker({
-        })
+        // datepicker
+        $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" })
       });
 
   %body
@@ -22,8 +22,8 @@
       %h1
         %a{ href: "./"} Light Weight Lang News
 
-    %form{action: "target-date", method: "POST"}
-      %input{type: "text", id: "datepicker", name: "target-date"}
+    %form{action: "/target-date", method: "POST"}
+      %input{type: "text", id: "datepicker", name: "target_date"}
         %input{type: "submit", id: "date", class: "btn btn-primary", value: "わーぷ"} 
 
     %div#container

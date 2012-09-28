@@ -35,9 +35,13 @@ class MyApp < Sinatra::Base
     expires 3600, :public, :must_revalidate
   end
 
-#  get '/style.css' do
-#    content_type 'text/css', charset: 'utf-8'
-#    sass :style
-#  end
+  post '/target-date' do
+    @target_date = params[:target_date]
+    @data = 
+      Bookmark.order_by(:bookmark_count.desc)
+              .where(Sequel.like(:created_at, "#{params[:target_date]}%"))
+              #.where(created_at: "params[:target_date]")
+    haml :bookmarks
+  end
 end
 
