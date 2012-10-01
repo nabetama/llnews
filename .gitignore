@@ -1,5 +1,6 @@
 result
 /tmp/*
 *.swp
-./test.db
+*.db
 .DS_Store
+*.log

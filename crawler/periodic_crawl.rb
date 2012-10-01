@@ -1,7 +1,10 @@
 # coding: utf-8
+require "logger"
 require "./crawler/crawler"
 require "./models/bookmark"
 
+log = Logger.new('./crawler/bookmarks.log')
+log.level = Logger::INFO
 tags = ['ruby', 'perl', 'python', 'php', 'sinatra', 'rails']
 
 tags.each do |tag|
@@ -10,7 +13,7 @@ tags.each do |tag|
   bookmarks.articles.each do |bookmark|
 
     row_count = Bookmark.where(title: bookmark[:title], tag: tag, url:bookmark[:link_url]).count
-    puts "#{row_count}件のレコードを見つけました"
+    log.info "#{row_count}件のレコードを見つけました"
     if row_count.eql? 0
       Bookmark.create(
         title:          bookmark[:title],
@@ -18,7 +21,7 @@ tags.each do |tag|
         tag:            tag,
         bookmark_count: bookmark[:users].to_s.to_i
       )
-      puts "created: #{bookmark[:title]}: #{bookmark[:tag]}: #{bookmark[:bookmark_count]}"
+      log.info "created: 『#{bookmark[:title]}』 tag: #{tag} #{bookmark[:users]}users"
     else
       Bookmark.where(
         title:          bookmark[:title],
@@ -27,7 +30,7 @@ tags.each do |tag|
       ).update(
         bookmark_count: bookmark[:users].to_s.to_i
       )
-      puts "updated: #{bookmark[:title]}: #{bookmark[:tag]}: #{bookmark[:bookmark_count]}"
+      log.info "updated: 『#{bookmark[:title]}』 tag: #{tag} #{bookmark[:users]}users"
     end
   end
 end
