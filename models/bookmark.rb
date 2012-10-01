@@ -13,5 +13,10 @@ class Bookmark < Sequel::Model
     self.updated_at = Time.now.strftime("%Y-%m-%d")
     super
   end
+
+  def after_update
+    self.updated_at = Time.now.strftime("%Y-%m-%d")
+    super
+  end
 end
 
