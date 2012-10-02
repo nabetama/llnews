@@ -2,6 +2,7 @@
 require "rubygems"
 require "sinatra/base"
 require "./models/bookmark"
+require "sass"
 
 class MyApp < Sinatra::Base
 
@@ -28,6 +29,12 @@ class MyApp < Sinatra::Base
     cach_control
     @data = Bookmark.order_by(:bookmark_count.desc).where(tag: lang)
     haml :bookmarks
+  end
+
+  # Sass
+  get '/stylesheets/base.css' do
+    content_type 'text/css', charset: "utf-8"
+    sass :base
   end
 
   # ページを1時間キャッシュする
